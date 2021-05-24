@@ -5,7 +5,7 @@ The objective of this project is to implement genetic algorithms to solve the Tr
 
 # Files
 
-Main files with the travel salesman algorithm to each dataset.
+Main files with the travel salesman algorithm to each dataset.<br/>
 tsp.py
 tsp_uy.py
 tsp_it.py
