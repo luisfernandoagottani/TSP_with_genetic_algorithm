@@ -6,18 +6,18 @@ The objective of this project is to implement genetic algorithms to solve the Tr
 # Files
 
 Main files with the travel salesman algorithm to each dataset.<br/>
-tsp.py
-tsp_uy.py
+tsp.py<br/>
+tsp_uy.py<br/>
 tsp_it.py
 
 ## Results
 
-File to colect excel sheets with the results from tsp algorithm and create plots to compare configurations solutions.
+File to colect excel sheets with the results from tsp algorithm and create plots to compare configurations solutions.<br/>
 Plot_results.ipynb
 
 ## Report
 
-Report with the approach used for the project and results.
+Report with the approach used for the project and results.<br/>
 CIFO_Agottani.pdf
 
 ## Folder Data
