@@ -24,4 +24,4 @@ def dist_matrix(data):
 
 
 distance_matrix = dist_matrix(data)
-
+distance_matrix

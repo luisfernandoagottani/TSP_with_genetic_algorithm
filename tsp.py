@@ -11,6 +11,7 @@ from copy import deepcopy
 import pandas as pd
 import os
 import time
+import matplotlib.pyplot as plt
 
 def evaluate(self):
     """A simple objective function to calculate distances
@@ -51,12 +52,9 @@ Individual.evaluate = evaluate
 Individual.get_neighbours = get_neighbours
 
 
-#First try
 
-#Initialization Hill Climbing, selection = tournament, crossove = cyclo_co, mutate = inversion_mutation
 
-# run
- #if best return best_run representation, best_run fitness and i count
+#Create test function to test all configurations with just one function.
 
 def test_function(n_tests,test_name, initialization, size, gens, select, crossover, mutate, co_p, mu_p, elitism):
     best_score = 10000000000
@@ -222,6 +220,8 @@ def test_function(n_tests,test_name, initialization, size, gens, select, crossov
 co_p = [0.3, 0.6, 0.8]
 mu_p = [0.3, 0.6, 0.8]
 
+#tests detlais
+
 start = time.time()
 print("hello")
 for i in range(len(co_p)):
@@ -237,79 +237,78 @@ for i in range(len(co_p)):
         co_p = co_p[i], 
         mu_p = mu_p[j],
         elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's100_hill_climp_tournament_pmx_co_inversion_mutation',
+        initialization = 'hill_climb' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = pmx_co, 
+        mutate = inversion_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's100_sim_annealing_tournament_pmx_co_inversion_mutation',
+        initialization = 'sim_annealing' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = pmx_co, 
+        mutate = inversion_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's100_random_tournament_cycle_co_inversion_mutation',
+        initialization = 'random' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = cycle_co, 
+        mutate = inversion_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's100_random_tournament_pmx_co_swap_mutation',
+        initialization = 'random' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = pmx_co, 
+        mutate = swap_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's50_random_tournament_pmx_co_inversion_mutation',
+        initialization = 'random' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = pmx_co, 
+        mutate = inversion_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = True)
+
+        test_function(n_tests = 10, 
+        test_name= 's100_random_tournament_pmx_co_inversion_mutation_EF',
+        initialization = 'random' , 
+        size = 100, 
+        gens = 100, 
+        select = tournament, 
+        crossover = pmx_co, 
+        mutate = inversion_mutation, 
+        co_p = co_p[i], 
+        mu_p = mu_p[j],
+        elitism = False)
+        
 end = time.time()
 print(end - start)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's100_hill_climp_tournament_pmx_co_inversion_mutation',
-        # initialization = 'hill_climb' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = pmx_co, 
-        # mutate = inversion_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = True)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's100_sim_annealing_tournament_pmx_co_inversion_mutation',
-        # initialization = 'sim_annealing' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = pmx_co, 
-        # mutate = inversion_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = True)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's100_random_tournament_cycle_co_inversion_mutation',
-        # initialization = 'random' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = cycle_co, 
-        # mutate = inversion_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = True)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's100_random_tournament_pmx_co_swap_mutation',
-        # initialization = 'random' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = pmx_co, 
-        # mutate = swap_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = True)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's50_random_tournament_pmx_co_inversion_mutation',
-        # initialization = 'random' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = pmx_co, 
-        # mutate = inversion_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = True)
-
-        # test_function(n_tests = 10, 
-        # test_name= 's100_random_tournament_pmx_co_inversion_mutation_EF',
-        # initialization = 'random' , 
-        # size = 100, 
-        # gens = 100, 
-        # select = tournament, 
-        # crossover = pmx_co, 
-        # mutate = inversion_mutation, 
-        # co_p = co_p[i], 
-        # mu_p = mu_p[j],
-        # elitism = False)
-
-        
